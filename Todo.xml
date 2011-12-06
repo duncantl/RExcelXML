@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/Users/duncan/Projects/org/omegahat/Docs/XSL/Todo.xsl" ?> 
+<!--<?xml-stylesheet type="text/xsl" href="file:///Users/duncan/Projects/org/omegahat/Docs/XSL/Todo.xsl" ?> -->
+<!-- <?xml-stylesheet type="text/xsl" href="http://www.omegahat.org/Todo.xsl" ?> -->
+
+<topics xmlns:r="http://www.r-project.org">
+<title>RExcelXML package</title>
+
+<topic>
+<title>Basic</title>
+<items>
+
+<item>
+Add a newExcelDoc() to explicitly say create a new file.
+</item>
+
+<item>
+Method to update the worksheet in the archive, e.g.
+update(sh)
+<br/>
+Also allow a mechanism for the archive/workbook to maintain
+a pointer to all of the documents it gives out and then update them all in one go.
+Probably need a mutable object (reference class/environment).
+</item>
+
+<item>
+Implement sh[["A1"]] = value. In the code, just finish off.
+</item>
+
+<item status="done">
+sh["A1", asNode = TRUE] should return the single node, not a list.
+</item>
+
+
+<item status="done">
+When setting a formula, should remove the type on the attribute.
+</item>
+
+<item>
+make sure cached strings get carried around properly.
+</item>
+
+<item>
+Class for cell nodes so that we can use the same subsetting idioms for these.
+</item>
+
+<item>
+Check for timestamp change on documents.
+</item>
+
+<item>
+documentation for functions
+</item>
+
+<item status="low">
+skip =  for read.xlsx
+<br/>
+Instead use
+<r:code>
+sh = workbook("...")[[sheetIndex]]
+sh[ rows, cols]
+</r:code>
+</item>
+
+<item status="done">
+support na = in the subset operators
+for mapping a value to NA.
+</item>
+
+<item status="check">
+NA symbol in read.xlsx
+</item>
+
+<item>
+create a new style
+<br/>
+Setting styles on cells, rows and columns.
+e.g. colors, fonts, indentation, ...
+<br/>
+Create new styles and set the cells to use these.
+<br/>
+Add the definitions to the getPart(, "application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"),
+i.e. xl/styles.xml.
+</item>
+
+<item>
+Add images to a sheet. at a location.
+<br/>
+The images are in xl/drawings/drawing[i].xml with Drawing ML markup.
+Who finds this file?  It is in xl/worksheets/_rels/sheet4.xml.rels.
+Nothing refers to this.
+There is an entry for drawing1.xml in the [Content_Types].xml file
+just to identify its type.
+<br/>
+How do we map the row-column to a location on the canvas?
+</item>
+
+<item status="done">
+writing a report with formula.
+<br/>
+See tests/formulaSet.R for an example.
+</item>
+
+<item>
+create a pivot table.
+</item>
+
+<item>
+create an excel chart.
+</item>
+
+<item status="done">
+sh[1,2]  returns a list with one element, not just the single element.
+</item>
+
+<item status="low">
+Warning in assigning to cell with update.
+<r:code>
+library(RExcelXML)
+wb = workbook("RExcelXML/inst/SampleDocs/Workbook1.xlsx"); sh = wb[[1]]
+sh[2, 1] = 10
+</r:code>
+Seems that in updateArchiveFiles, the data.frame (info) is
+an S4 object bu when we get to [&lt;-data.frame, 
+that sets the class to <r:null/> near the beginning and this
+causes the warning.  Looks like there is an inconsistency 
+in R methods and [&lt;-data.frame.
+</item>
+
+<item status="done"> 
+Assigning to a cell is failing now, probably related to the
+changes to the Rcompression package and how we zip and
+update the archives.
+
+<r:code>
+library(RExcelXML)
+wb = workbook("RExcelXML/inst/SampleDocs/Workbook1.xlsx"); sh = wb[[1]]
+sh[2, 1] = 10
+</r:code>
+
+</item>
+
+<item>
+When assigning to a cell in a Worksheet, update the row span if
+this is a new cell outside of that range.
+</item>
+
+<item status="check">
+hyperlinks() method.
+</item>
+
+<item>
+When reading a spreadsheet, recognize dates, etc.
+<br/>
+Dates are not given by type in Excel (in OfficeLibre)
+but instead by styles.
+<br/>
+Need to ensure that we don't collapse vectors containing dates and numbers
+back to numeric.
+</item>
+
+<item status="done">
+sh[2, "A"] gives not subsettable error.
+</item>
+
+<item>
+When inserting a date, convert it appropriately.
+</item>
+
+<item status="improve">
+When update a cell (via setCellValue or sh[i, j]),
+need to update cells which depend on this.
+<br/>
+We can remove the value (v node) within the cells
+that have a formula that depend on this cell.
+This is done now in the update.
+But it just uses contains( formula, cell-id), e.g
+A34 * 2 + 1 will match A3 even though it is 
+actually A3.
+<br/>
+Can we mark the cells as dirty or force Excel to recalculate?
+<br/>
+How does the calcChain.xml file tell us which cells depend on which?
+It appears that the i tells us which sheet and applies to all subsequent
+nodes in the calcChain.xml until the next node that has an i.
+In other words
+<![CDATA[
+  <c r="B4" i="4"/>
+  <c r="B3"/>
+  <c r="B2"/>
+  <c r="B1"/>
+  <c r="B2" i="1"/>
+  <c r="B3"/>
+  <c r="B4"/>
+  <c r="B5"/>
+  <c r="B8"/>
+]]>
+says that sheet 4 has formulae in B4-B1 and sheet 1 has 
+formula in B2-B8
+</item>
+
+<item status="check">
+Compute the names of the files found via relationships
+using relative directories.
+For example, getting a worksheet is ignoring the xl/ directory
+because the relationship is relative  to
+xl/workbook.xml, so we are getting worksheets/worksheet1.xml
+rather than xl/worksheets/worksheet1.xml.
+<br/>
+Added relativeTo parameter in resolveRelationships().
+</item>
+
+<item status="done">
+Why is the Worksheet class being dropped when we access the object.
+<r:code>
+w = excelDoc("~/Books/XMLTechnologies/Rpackages/RExcelXML/inst/templateDocs/Sample3sheets.xlsx")
+xm = getSheet(as(w, "Workbook"), 2)[[1]]
+class(xm)
+docName(xm)
+class(xm)
+</r:code>
+Problem was the usual one of using an externalptr directly.
+</item>
+
+
+<item status="low">
+Conditional Formatting.
+<br/>
+Related to styles but data dependent.
+</item>
+
+
+
+<item status="medium">
+A class for Worksheet that allows us to specifies the row
+and/or column for the variable names and row names
+and then tools to allow us to index with these.
+<br/>
+In other words, can we treat the table in the excel sheet
+like a data frame where we provide a mapping
+from our row and column names to the rows and columns
+in excel and deal with non-contiguous ranges, etc.
+</item>
+
+<item>
+Put a time stamp when we read the contents of a ZipArchiveEntry
+so that we can check to see if it is out of date when we try
+to access it subsequently.
+This is a problem, for example,  when one has an Excel file
+open in Excel and are working with sheet objects in R.
+They need to be synchronized.  This is why we want to use
+DCOM!
+</item>
+
+<item status="done">
+getPart and relationships
+</item>
+
+<item status="low">
+Tables (subgroups of cells)
+</item>
+
+<item status="improve">
+Add new worksheet.
+<br/>
+Copy an empty one. Take from Empty.xslx
+<br/>
+Basically done, but we want to be able to
+specify the name of the sheet for displaying on
+the tab as well as a file name for location within the archive.
+</item>
+
+<item>
+Write contents to cells.
+Done for single cell and scalar.
+Do vectors, and multiple cells.
+</item>
+
+<item>
+Extract subsets.
+</item>
+
+
+<item status="low">
+Pivot tables
+</item>
+
+<item status="low">
+When assigning an R variable to a cell, use the name if possible
+to name the Excel cell.
+</item>
+</items>
+</topic>
+</topics>

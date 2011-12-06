@@ -1,0 +1,16 @@
+o[o[,1] != o[,2],]
+
+[Content_Types].xml                  1287  1254
+docProps/thumbnail.jpeg             18112 12292
++ xl/drawings/_rels/drawing1.xml.rels   260   292
+xl/drawings/drawing1.xml             1443  1170
+xl/workbook.xml                       745   749
+xl/worksheets/_rels/sheet1.xml.rels   269   299
+xl/worksheets/sheet1.xml             1060   858
+
+
+cmp("xl/drawings/_rels/drawing1.xml.rels")
+
+   difference is name of file
+   standalone and encoding.  - Don't make a difference.
+      (Removed them in Truth and rebuilt and opened)

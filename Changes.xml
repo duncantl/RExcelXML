@@ -1,0 +1,81 @@
+<changelog xmlns:r="http://www.r-project.org"
+           xmlns:omg="http://www.omegahat.org">
+<package><omg:pkg>RExcelXML</omg:pkg></package>
+
+<version num="0.4-0">
+<change>
+Allow <r:arg>na</r:arg> in <r:func>read.xlsx</r:func>,
+<r:func>getSheetContents</r:func>, <r:func>[</r:func>, etc.
+to be a vector with more than one value so that we can 
+map values to <r:na/>.
+</change>
+<change>
+Pass ... arguments to <r:func>read.xlsx</r:func> on to
+<r:func>getSheetContents</r:func>. This allows support for, e.g, 
+<r:arg>header</r:arg>.
+</change>
+<change>
+<r:func>excelDoc</r:func> checks the magic number of the file is PK.
+</change>
+<change>
+<r:func>excelDoc</r:func> allows the caller to specify their own
+template file when creating a new document. Suggested by
+Marc Kirchner.
+</change>
+<change>
+<r:func>cells</r:func>/<r:func>getCellNodes</r:func> now allows getting either
+all the cells or all the non-empty cells, i.e. that have a <xml:tag>v</xml:tag> node.
+</change>
+</version>
+
+<version num="0.3-0">
+<change>
+<r:func>setCellStyle</r:func> and <r:func>createStyle</r:func> allow
+us to change the appearance of one or more cells in a work sheet.
+</change>
+<change>
+<r:func>setColWidth</r:func> allows one to change the width of one or more columns in a work sheet.
+</change>
+<change>
+Allow ranges to be specified in the form "B2:D8" in subsetting.
+</change>
+<change>
+<![CDATA[sheet[i, j, asFormula] = "A1 + A2 + sum(B3:B7)"]]> allows insertion of formulas for cells
+and clears the value and type.
+</change>
+<change>
+<r:func>hyperlinks</r:func> handles links to anchors within the document, including across sheets.
+</change>
+<change>
+<r:func>lapply</r:func> method for Workbook works correctly now.
+</change>
+<change>
+Improved subsetting.
+</change>
+</version>
+<version num="0.2-1">
+<change>
+Support for several more variations/combinations 
+of sheet[i, j] with missing arguments, logical vectors, negative indices, etc.
+</change>
+<change>
+Fixed handling of columns with cells with no values.
+</change>
+</version>
+
+<version num="0.2-0">
+<change>
+Added <r:func>read.xlsx</r:func>
+</change>
+
+<change>
+Added <r:var>header</r:var> to <r:func>getSheetContents</r:func>.
+</change>
+
+<change>
+Added conversion of columns to, e.g., dates based on the style/format of the columns.
+</change>
+</version>
+
+
+</changelog>

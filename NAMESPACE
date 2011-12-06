@@ -1,0 +1,74 @@
+import(XML)
+import(Rcompression)
+
+import(methods)
+import(ROOXML)
+#importFrom("methods", "coerce")
+#export(coerce)
+
+export(cells, getCellNodes)
+
+exportMethods(hyperlinks, getImages)
+
+exportClass(ExcelFormula)
+export(excelFormula)
+
+export(
+ excelDoc,
+ workbook,                     
+ docName,
+       
+ getSheet,
+ getSheetContents
+)
+
+# getStringValues # simple function to handle 0-based indexing.
+export(
+ getSharedStrings,       
+ getDocStyles,
+ getStyles
+)
+export(getCellNodes)
+
+
+exportClasses("Workbook", "Worksheet", "WorksheetFile", "ExcelArchive")
+exportMethods("[[", "coerce", "[")
+
+export(read.xlsx)
+exportMethods(read.xlsx)
+
+
+#S3method(getPart, ExcelArchive)
+
+#export(getCoordPairs)
+
+#exportMethods(getOOXMLPartsTable)
+
+export(setCellStyle, createStyle)
+export(Font)
+export(update)
+exportMethods(update)
+export(setColWidth, getColWidths)
+
+export(getCellStyle)
+
+exportMethods(getRelationshipsDoc)
+
+
+# export(getCellValue)
+
+#[1] "addStyle"                 "addWorkbookRelationships"
+#                 "convertColumn"           
+#[5] "convertColumns"       
+#[7] "DateTimeFormats"          "fixPath"                 
+#[9] "formulaCells"             "getBlips"                
+#11]             "getCellStyles"           
+#13] "getCellValue"             "getColIndex"             
+#15] "getColTypes"              "getColumnInfo"           
+#17] "getColumnStyleIds"        "getCoordPairs"           
+#19] "getData"                  "getDateOrigin"           
+#21] "getNumberFormats"         "getSheetImages"          
+#23]           "lapply"                  
+#25] "mapToColumnName"    
+#27] "setCellValue"             "SpreadsheetMLParts"      
+#29]      "worksheet"               

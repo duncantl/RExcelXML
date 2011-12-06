@@ -1,0 +1,25 @@
+Package: RExcelXML
+Version: 0.2-1
+Title:  Tools for working with Excel XML documents
+Description:  This is a collection of some general
+  and quite simple facilities for working with Excel spreadsheets and 
+  workbooks. The ideas and some of the code should generalize to 
+  OpenOffice and other spreadsheets. 
+  At present this is intended as a relatively shallow implementation,
+  and is aimed at providing a foundation to illustrate how one uses
+  the XML and other packages to work with these types of documents.
+  The hope is for others to contribute additional functionality or
+  even take ownership of the package and extend it.
+  We have developed functionality similar to this for Word and Excel
+  using DCOM and the RDCOMClient facilities.
+Imports: XML, Rcompression, methods
+XDepends: methods 
+Depends: ROOXML
+Author: Duncan Temple Lang
+Maintainer: Duncan Temple Lang <duncan@wald.ucdavis.edu>
+License: BSD
+Collate: classes.R cellValues.R cellStyles.R hyperlinks.R images.R readXLSX.R makeStyles.R addImage.R
+         update.R columns.R
+
+
+

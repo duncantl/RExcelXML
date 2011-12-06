@@ -1,0 +1,24 @@
+
+RExcelXML
+
+
+Version 0.2-1
+
+  *  Support for several more variations/combinations of sheet[i, j] with missing arguments, logical vectors, negative indices, etc.
+
+  *  Fixed handling of columns with cells with no values.
+
+
+
+Version 0.2-0
+
+  *  Added read.xlsx()
+
+
+  *  Added header to getSheetContents().
+
+
+  *  Added conversion of columns to, e.g., dates based on the style/format of the columns.
+
+
+

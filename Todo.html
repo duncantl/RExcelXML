@@ -1,0 +1,477 @@
+<html xmlns:r="http://www.r-project.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Todo List: RExcelXML package</title>
+<link rel="stylesheet" href="file:///Users/duncan/Classes/StatComputing/XDynDocs/inst/CSS/OmegaTech.css">
+<link rel="stylesheet" href="file:///Users/duncan/Classes/StatComputing/XDynDocs/inst/CSS/Todo.css">
+<script language="JavaScript" src="file:///Users/duncan/Classes/StatComputing/XDynDocs/inst/JavaScript/tooltips.js"></script>
+</head>
+<body>
+<center><table><tr valign="top">
+<th align="left" style="padding-right: 130pt"><ol>
+<li>
+<a href="#Basic">Basic</a>
+       - 37 <i class="notDone">(28)</i>
+</li>
+<li><a href="#Done">Done</a></li>
+</ol></th>
+<th align="right">
+   Total number of elements: 37<br>
+   Not yet completed: 28<br>
+   High priority: 16<br>
+   Completed: 9</th>
+</tr></table></center>
+<hr width="50%" height="2">
+<div class="count-tables"><table><tr valign="top"><th><div border="1"><table border="0" frame="1"><tbody><tr><th class="table-count"><div class="table-count"><div class="topic-table">
+<p align="center"><a href="#Basic">Basic</a></p>
+<table width="200"><tbody>
+<tr>
+<th><i>Status</i></th>
+<th><i>Count</i></th>
+</tr>
+<tr>
+<td align="left" class="done"><a class="done" href="#Basic::done">done</a></td>
+<td align="center" class="done">9</td>
+</tr>
+<tr>
+<td align="left" class="low"><a class="low" href="#Basic::low">low</a></td>
+<td align="center" class="low">6</td>
+</tr>
+<tr>
+<td align="left" class="check"><a class="check" href="#Basic::check">check</a></td>
+<td align="center" class="check">3</td>
+</tr>
+<tr>
+<td align="left" class="improve"><a class="improve" href="#Basic::improve">improve</a></td>
+<td align="center" class="improve">2</td>
+</tr>
+<tr>
+<td align="left" class="medium"><a class="medium" href="#Basic::medium">medium</a></td>
+<td align="center" class="medium">1</td>
+</tr>
+<tr>
+<td align="left" class="no-status"><a class="no-status" href="#Basic">no status</a></td>
+<td align="center">16</td>
+</tr>
+<tr>
+<th></th>
+<th><hr width="50%"></th>
+</tr>
+<tr>
+<th></th>
+<td align="center">     (37)</td>
+</tr>
+</tbody></table>
+</div></div></th></tr></tbody></table></div></th></tr></table></div>
+<div><hr width="50%"></div>
+<h2 class="topic"><a name=""></a></h2>
+<ol><dl>
+<hr width="50%" height="2">
+<div class="done"></div>
+</dl></ol>
+
+
+<h2 class="topic"><a name="Basic">Basic</a></h2>
+<div class="topic-table">
+<p align="center"><a href="#"></a></p>
+<table width="200"><tbody>
+<tr>
+<th><i>Status</i></th>
+<th><i>Count</i></th>
+</tr>
+<tr>
+<td align="left" class="done"><a class="done" href="#::done">done</a></td>
+<td align="center" class="done">9</td>
+</tr>
+<tr>
+<td align="left" class="low"><a class="low" href="#::low">low</a></td>
+<td align="center" class="low">6</td>
+</tr>
+<tr>
+<td align="left" class="check"><a class="check" href="#::check">check</a></td>
+<td align="center" class="check">3</td>
+</tr>
+<tr>
+<td align="left" class="improve"><a class="improve" href="#::improve">improve</a></td>
+<td align="center" class="improve">2</td>
+</tr>
+<tr>
+<td align="left" class="medium"><a class="medium" href="#::medium">medium</a></td>
+<td align="center" class="medium">1</td>
+</tr>
+<tr>
+<td align="left" class="no-status"><a class="no-status" href="#">no status</a></td>
+<td align="center">16</td>
+</tr>
+<tr>
+<th></th>
+<th><hr width="50%"></th>
+</tr>
+<tr>
+<th></th>
+<td align="center">     (37)</td>
+</tr>
+</tbody></table>
+</div>
+<ol><dl>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Method to update the worksheet in the archive, e.g.
+update(sh)
+<br>
+Also allow a mechanism for the archive/workbook to maintain
+a pointer to all of the documents it gives out and then update them all in one go.
+Probably need a mutable object (reference class/environment).
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Implement sh[["A1"]] = value. In the code, just finish off.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+make sure cached strings get carried around properly.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Class for cell nodes so that we can use the same subsetting idioms for these.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Check for timestamp change on documents.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+documentation for functions
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+create a new style
+<br>
+Setting styles on cells, rows and columns.
+e.g. colors, fonts, indentation, ...
+<br>
+Create new styles and set the cells to use these.
+<br>
+Add the definitions to the getPart(, "application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"),
+i.e. xl/styles.xml.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Add images to a sheet. at a location.
+<br>
+The images are in xl/drawings/drawing[i].xml with Drawing ML markup.
+Who finds this file?  It is in xl/worksheets/_rels/sheet4.xml.rels.
+Nothing refers to this.
+There is an entry for drawing1.xml in the [Content_Types].xml file
+just to identify its type.
+<br>
+How do we map the row-column to a location on the canvas?
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+create a pivot table.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+create an excel chart.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+When assigning to a cell in a Worksheet, update the row span if
+this is a new cell outside of that range.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+When reading a spreadsheet, recognize dates, etc.
+<br>
+Dates are not given by type in Excel (in OfficeLibre)
+but instead by styles.
+<br>
+Need to ensure that we don't collapse vectors containing dates and numbers
+back to numeric.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+When inserting a date, convert it appropriately.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Put a time stamp when we read the contents of a ZipArchiveEntry
+so that we can check to see if it is out of date when we try
+to access it subsequently.
+This is a problem, for example,  when one has an Excel file
+open in Excel and are working with sheet objects in R.
+They need to be synchronized.  This is why we want to use
+DCOM!
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Write contents to cells.
+Done for single cell and scalar.
+Do vectors, and multiple cells.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class=""><li class="" title="">
+<a name="::"></a>
+Extract subsets.
+</li></dt>
+<dd class=""></dd>
+</div>
+<div class="todoItem">
+<dt class="low"><li class="low" title="low">
+<a name="::low"></a>
+skip =  for read.xlsx
+<br>
+Instead use
+<pre class="rcode">
+sh = workbook("...")[[sheetIndex]]
+sh[ rows, cols]
+</pre>
+</li></dt>
+<dd class="low"></dd>
+</div>
+<div class="todoItem">
+<dt class="check"><li class="check" title="check">
+<a name="::check"></a>
+NA symbol in read.xlsx
+</li></dt>
+<dd class="check"></dd>
+</div>
+<div class="todoItem">
+<dt class="low"><li class="low" title="low">
+<a name="::low"></a>
+Warning in assigning to cell with update.
+<pre class="rcode">
+library(RExcelXML)
+wb = workbook("RExcelXML/inst/SampleDocs/Workbook1.xlsx"); sh = wb[[1]]
+sh[2, 1] = 10
+</pre>
+Seems that in updateArchiveFiles, the data.frame (info) is
+an S4 object bu when we get to [&lt;-data.frame, 
+that sets the class to  near the beginning and this
+causes the warning.  Looks like there is an inconsistency 
+in R methods and [&lt;-data.frame.
+</li></dt>
+<dd class="low"></dd>
+</div>
+<div class="todoItem">
+<dt class="check"><li class="check" title="check">
+<a name="::check"></a>
+hyperlinks() method.
+</li></dt>
+<dd class="check"></dd>
+</div>
+<div class="todoItem">
+<dt class="improve"><li class="improve" title="improve">
+<a name="::improve"></a>
+When update a cell (via setCellValue or sh[i, j]),
+need to update cells which depend on this.
+<br>
+We can remove the value (v node) within the cells
+that have a formula that depend on this cell.
+This is done now in the update.
+But it just uses contains( formula, cell-id), e.g
+A34 * 2 + 1 will match A3 even though it is 
+actually A3.
+<br>
+Can we mark the cells as dirty or force Excel to recalculate?
+<br>
+How does the calcChain.xml file tell us which cells depend on which?
+It appears that the i tells us which sheet and applies to all subsequent
+nodes in the calcChain.xml until the next node that has an i.
+In other words
+
+  &lt;c r="B4" i="4"/&gt;
+  &lt;c r="B3"/&gt;
+  &lt;c r="B2"/&gt;
+  &lt;c r="B1"/&gt;
+  &lt;c r="B2" i="1"/&gt;
+  &lt;c r="B3"/&gt;
+  &lt;c r="B4"/&gt;
+  &lt;c r="B5"/&gt;
+  &lt;c r="B8"/&gt;
+
+says that sheet 4 has formulae in B4-B1 and sheet 1 has 
+formula in B2-B8
+</li></dt>
+<dd class="improve"></dd>
+</div>
+<div class="todoItem">
+<dt class="check"><li class="check" title="check">
+<a name="::check"></a>
+Compute the names of the files found via relationships
+using relative directories.
+For example, getting a worksheet is ignoring the xl/ directory
+because the relationship is relative  to
+xl/workbook.xml, so we are getting worksheets/worksheet1.xml
+rather than xl/worksheets/worksheet1.xml.
+<br>
+Added relativeTo parameter in resolveRelationships().
+</li></dt>
+<dd class="check"></dd>
+</div>
+<div class="todoItem">
+<dt class="low"><li class="low" title="low">
+<a name="::low"></a>
+Conditional Formatting.
+<br>
+Related to styles but data dependent.
+</li></dt>
+<dd class="low"></dd>
+</div>
+<div class="todoItem">
+<dt class="medium"><li class="medium" title="medium">
+<a name="::medium"></a>
+A class for Worksheet that allows us to specifies the row
+and/or column for the variable names and row names
+and then tools to allow us to index with these.
+<br>
+In other words, can we treat the table in the excel sheet
+like a data frame where we provide a mapping
+from our row and column names to the rows and columns
+in excel and deal with non-contiguous ranges, etc.
+</li></dt>
+<dd class="medium"></dd>
+</div>
+<div class="todoItem">
+<dt class="low"><li class="low" title="low">
+<a name="::low"></a>
+Tables (subgroups of cells)
+</li></dt>
+<dd class="low"></dd>
+</div>
+<div class="todoItem">
+<dt class="improve"><li class="improve" title="improve">
+<a name="::improve"></a>
+Add new worksheet.
+<br>
+Copy an empty one. Take from Empty.xslx
+<br>
+Basically done, but we want to be able to
+specify the name of the sheet for displaying on
+the tab as well as a file name for location within the archive.
+</li></dt>
+<dd class="improve"></dd>
+</div>
+<div class="todoItem">
+<dt class="low"><li class="low" title="low">
+<a name="::low"></a>
+Pivot tables
+</li></dt>
+<dd class="low"></dd>
+</div>
+<div class="todoItem">
+<dt class="low"><li class="low" title="low">
+<a name="::low"></a>
+When assigning an R variable to a cell, use the name if possible
+to name the Excel cell.
+</li></dt>
+<dd class="low"></dd>
+</div>
+<hr width="50%" height="2">
+<div class="done">
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+sh["A1", asNode = TRUE] should return the single node, not a list.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+When setting a formula, should remove the type on the attribute.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+support na = in the subset operators
+for mapping a value to NA.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+writing a report with formula.
+<br>
+See tests/formulaSet.R for an example.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+sh[1,2]  returns a list with one element, not just the single element.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a> 
+Assigning to a cell is failing now, probably related to the
+changes to the Rcompression package and how we zip and
+update the archives.
+
+<pre class="rcode">
+library(RExcelXML)
+wb = workbook("RExcelXML/inst/SampleDocs/Workbook1.xlsx"); sh = wb[[1]]
+sh[2, 1] = 10
+</pre>
+
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+sh[2, "A"] gives not subsettable error.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+Why is the Worksheet class being dropped when we access the object.
+<pre class="rcode">
+w = excelDoc("~/Books/XMLTechnologies/Rpackages/RExcelXML/inst/templateDocs/Sample3sheets.xlsx")
+xm = getSheet(as(w, "Workbook"), 2)[[1]]
+class(xm)
+docName(xm)
+class(xm)
+</pre>
+Problem was the usual one of using an externalptr directly.
+</li></dt></div>
+<div class="todoItem"><dt class="done"><li class="done" title="done">
+<a name="::done"></a>
+getPart and relationships
+</li></dt></div>
+</div>
+</dl></ol>
+</body>
+</html>
