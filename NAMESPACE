@@ -54,6 +54,7 @@ export(getCellStyle)
 
 exportMethods(getRelationshipsDoc)
 
+export(addImage)
 
 # export(getCellValue)
 

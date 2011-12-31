@@ -1,5 +1,5 @@
 library(RExcelXML)
-source("R/addImage.R")
+#source("R/addImage.R")
 # source("../ROOXML/R/part.R")
 library(XML)
 library(Rcompression)
