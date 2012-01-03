@@ -38,7 +38,10 @@ function(..., obj = new("Font"))
 
 ExcelXMLNamespaces =
   c(main = "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
-    rels = "http://schemas.openxmlformats.org/officeDocument/2006/relationships")
+    rels = "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+    eprops = "http://schemas.openxmlformats.org/officeDocument/2006/extended-properties",
+    vtypes = "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes",
+    contentTypes = "http://schemas.openxmlformats.org/package/2006/content-types")
 
 createStyle =
   #

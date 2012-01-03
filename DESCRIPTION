@@ -19,7 +19,7 @@ Author: Duncan Temple Lang
 Maintainer: Duncan Temple Lang <duncan@wald.ucdavis.edu>
 License: BSD
 Collate: classes.R cellValues.R cellStyles.R hyperlinks.R images.R readXLSX.R makeStyles.R addImage.R
-         update.R columns.R
+         update.R columns.R addChart.R addSheet.R
 
 
 

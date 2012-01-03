@@ -61,7 +61,7 @@ function(f)
 
 
 excelDoc =
-function(f, create = FALSE, template = system.file("templateDocs", "Empty.xslx", package = "RExcelXML"),
+function(f, create = FALSE, template = system.file("templateDocs", "Empty.xlsx", package = "RExcelXML"),
           class = "ExcelArchive")
 {
      # 50 4B - PK for Phil Katz
@@ -1056,7 +1056,7 @@ worksheet =
   
 function(name = "xl/worksheets/emptySheet.xml", addDir = missing(name))
 {
-  f = system.file("templateDocs", "Empty.xslx", package = "RExcelXML")
+  f = system.file("templateDocs", "Empty.xlsx", package = "RExcelXML")
   sh = workbook(f)[[1]]
 
   if((missing(addDir) && length(grep("/", name)) == 0 ) || addDir)
