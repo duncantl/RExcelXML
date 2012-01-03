@@ -43,7 +43,7 @@
 }
 \usage{
 excelDoc(f, create = FALSE,
-         template = system.file("templateDocs", "Empty.xslx",
+         template = system.file("templateDocs", "Empty.xlsx",
                                   package = "RExcelXML"),
           class = "ExcelArchive")
 getSheet(doc, which, asXML = TRUE) 

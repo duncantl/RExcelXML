@@ -1,5 +1,5 @@
 Package: RExcelXML
-Version: 0.2-1
+Version: 0.5-0
 Title:  Tools for working with Excel XML documents
 Description:  This is a collection of some general
   and quite simple facilities for working with Excel spreadsheets and 

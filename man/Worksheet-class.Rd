@@ -19,11 +19,14 @@
 \alias{[<-,Worksheet,missing,numeric-method}
 \alias{[<-,Worksheet,numeric,character-method}
 \alias{[<-,Worksheet,missing,numeric-method}
+\alias{[<-,Worksheet,character,missing-method}
 \alias{[[<-,Workbook,ANY,ANY,Worksheet-method}
 \alias{[[<-,Workbook,character,ANY,ANY-method}
 \alias{[[<-,Worksheet,character,ANY,ANY-method}
 \alias{dim,Worksheet-method}
 \alias{docName,Worksheet-method}
+
+\alias{getRelationshipsDoc,Worksheet-method}
 
 \alias{getSharedStrings}
 \alias{getSharedStrings,Worksheet-method}

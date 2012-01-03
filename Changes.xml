@@ -2,6 +2,15 @@
            xmlns:omg="http://www.omegahat.org">
 <package><omg:pkg>RExcelXML</omg:pkg></package>
 
+<version num="0.5-0">
+<change>
+Introduced <r:func>addWorksheet</r:func> function to create a new work sheet.
+</change>
+<change>
+Additional documentation.
+</change>
+</version>
+
 <version num="0.4-0">
 <change>
 Allow <r:arg>na</r:arg> in <r:func>read.xlsx</r:func>,

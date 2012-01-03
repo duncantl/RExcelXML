@@ -6,11 +6,13 @@
 
 
 setGeneric("addWorksheet",
-            function(doc, sheet, name = deparse(substitute(sheet)), update = TRUE, num = getNextSheetNumber(doc))
+            function(doc, name = sprintf("Sheet%d", num), data = NULL,
+                       update = TRUE, num = getNextSheetNumber(doc))
                standardGeneric('addWorksheet'))
 
-setMethod("addWorksheet", c("ExcelArchive", "missing", name = "character"),
-          function(doc, sheet, name = deparse(substitute(sheet)), update = TRUE, num = getNextSheetNumber(doc)) {
+setMethod("addWorksheet", c("ExcelArchive", "character"),
+          function(doc, name =  sprintf("Sheet%d", num), data = NULL,
+                    update = TRUE, num = getNextSheetNumber(doc)) {
 
             f = system.file("templateDocs", "EmptySheet.xml", package = "RExcelXML")
 
@@ -24,9 +26,9 @@ setMethod("addWorksheet", c("ExcelArchive", "missing", name = "character"),
                updates = lapply(updates, function(x) if(is(x, "XMLInternalDocument")) I(saveXML(x)) else x)
                 # update(doc, .docs = updates)
                updateArchiveFiles(doc, updates)
-            }
-
-            invisible(updates)
+               as(doc, "Workbook")[[name]]  # get the sheet
+            } else
+              invisible(updates)
           })
 
 
@@ -35,7 +37,9 @@ setMethod("addWorksheet", c("ExcelArchive", "missing", name = "character"),
 addSheetEntry =
   #
   # This updates the different files in the documents.
-  # 
+  # It returns the modified XML documents, by name so that the entries
+  # can be updated in the Zip archive.
+  #
 function(doc, name, sheetId, filename, relId = character())
 {
 

@@ -29,7 +29,8 @@ getDocStyles(doc)
 getStyles(doc, what = c("cellXfs", "cellStyles", "tableStyles", "numFmts")) 
 createStyle(doc, fg = NA, fill = NA, font = NA, halign = NA,
             valign = NA, border = NA, format = NA, baseStyle = 1L,
-             ..., update = TRUE)
+             ..., update = TRUE,
+             styleDoc = getDocStyles(as(doc, "ExcelArchive")))
 setCellStyle(node, id, update = TRUE)
 getCellStyle(node, id = xmlGetAttr(node, "s", NA),
               styles = getDocStyles(docName(as(node, "Worksheet"))[1]))
@@ -64,6 +65,7 @@ getCellStyle(node, id = xmlGetAttr(node, "s", NA),
    already be zero-based.}
  \item{styles}{the document containing all the style definitions for the
    excel document.}
+ \item{styleDoc}{the XML document in which the styles are defined.}
 }
 \details{
 

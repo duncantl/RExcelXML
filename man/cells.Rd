@@ -11,7 +11,7 @@
 \usage{
 cells(sheet, notEmpty = TRUE,
        xquery = if (notEmpty)
-                  "//x:sheetData/*/x:c[x:v]"
+                  "//x:sheetData/*/x:c[x:v or x:is]"
                 else
                   "//x:sheetData/*/x:c",
        cells = getNodeSet(sheet@content, xquery, "x"))
