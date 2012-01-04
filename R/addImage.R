@@ -105,27 +105,15 @@ setMethod("addImage", "Worksheet",
            # in the sheet, find if we have an existing <drawing> element.
            #
            r = xmlRoot(sheet@content)
-           dr = r[["drawing"]]
+
            updates = list()
 
 
-           if(is.null(sheet.rels))
+           if(is.null(sheet.rels))  # need to add the _rels/sheet1.xml.rels
               updates[[getRelationshipsDoc(sheet)]] = sheet.rels = makeRelationshipsDoc(sheet)
-           
-           if(is.null(dr)) {
-                # need to add the _rels/sheet1.xml.rels
 
-             sid = c('r:id' = as.character(getUniqueId(sheet.rels)))
-             dr = newXMLNode("drawing", attrs = sid, namespace = "",
-                              namespaceDefinitions = RExcelXML:::ExcelXMLNamespaces[c("main", "rels")],
-                               parent = r, at = xmlSize(r) - 1L)
-             addRelation(sheet.rels, sid)
-             
-               # The sheet itself will will be updated directly.
-               # updates[[getDocElementName(sheet)]] = sheet@content
-             #        getDocElementName(sheet.rels)
-             updates[[getRelationshipsDoc(sheet)]] = sheet.rels
-           }
+           updates = append(updates, addDrawingNode(sheet, sheet.rels))
+           
 
            if(is.null(drawing.xml)) {
                # create the drawing xml document.
@@ -177,6 +165,26 @@ setMethod("addImage", "Worksheet",
            
            updates
        })
+
+addDrawingNode =
+function(sheet, sheet.rels, sid = getUniqueId(sheet.rels))
+{
+      dr = r[["drawing"]]
+      if(is.null(dr)) {
+
+         sid = c('r:id' = as.character(sid))
+         dr = newXMLNode("drawing", attrs = sid, namespace = "",
+                              namespaceDefinitions = RExcelXML:::ExcelXMLNamespaces[c("main", "rels")],
+                               parent = xmlRoot(sheet@content), at = xmlSize(sheet@content) - 1L)
+             addRelation(sheet.rels, sid)
+             
+               # The sheet itself will will be updated directly.
+               # updates[[getDocElementName(sheet)]] = sheet@content
+             #        getDocElementName(sheet.rels)
+            structure(list(sheet.rels), names = getRelationshipsDoc(sheet))
+        } else
+          list()
+}
 
 skeletonDrawingDoc =
   #XXX Consolidate with code in makeRelDoc

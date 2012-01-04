@@ -83,11 +83,6 @@ function(doc, name, sheetId, filename, relId = character())
 
 }
 
-getNextSheetNumber =
-function(doc)
-{
-  length(grep("xl/worksheets/.*\\.xml",  names(doc))) + 1L
-}
 
 
 getNextSheetRelId =
@@ -96,7 +91,23 @@ function(wbRelsDoc, sheetId, filename)
   eids = xpathSApply(wbRelsDoc, "//x:Relationship", xmlGetAttr, "Id",
                       namespaces = c(x = "http://schemas.openxmlformats.org/package/2006/relationships"))
 
+  ans = sprintf("rId%d", length(eids)+1L)
 
-  sprintf("rId%d", length(eids)+1L)
+    # Now ensure it is unique.
+  if(ans %in% eids) {
+      vals = as.integer(gsub("rId", "", grep("rId", eids, value = TRUE)))
+      ans = sprintf("rId%d", max(vals) + 1L)
+  }
+
+  ans
 }
 
+getNextSheetNumber =
+function(doc)
+  getNextNumber(doc, sprintf("xl/worksheets/sheet"))
+
+getNextNumber =
+function(doc, prefix)
+{
+  length(grep(sprintf("%s.*\\.xml",  names(doc))) + 1L
+}

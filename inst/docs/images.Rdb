@@ -50,7 +50,7 @@ So let's look at the contents of the file:
 ]]></programlisting>
 Note that there is only one <xml:tag>drawing</xml:tag> in the worksheet
 even though there are two plots.
-Simiarly, within the relationships fole, there is a single <xml:tag>Relationship</xml:tag>
+Similarly, within the relationships file, there is a single <xml:tag>Relationship</xml:tag>
 element.
 The <xml:attr>Target</xml:attr> attribute for this <xml:tag>Relationship</xml:tag>
 node points us to the XML file that tells us about the plots/drawing.
