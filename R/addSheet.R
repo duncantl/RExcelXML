@@ -84,7 +84,6 @@ function(doc, name, sheetId, filename, relId = character())
 }
 
 
-
 getNextSheetRelId =
 function(wbRelsDoc, sheetId, filename)
 {
@@ -104,10 +103,14 @@ function(wbRelsDoc, sheetId, filename)
 
 getNextSheetNumber =
 function(doc)
-  getNextNumber(doc, sprintf("xl/worksheets/sheet"))
+  getNextNumber(doc, "xl/worksheets/sheet")
 
 getNextNumber =
-function(doc, prefix)
+function(doc, prefix, asNumber = FALSE)
 {
-  length(grep(sprintf("%s.*\\.xml",  names(doc))) + 1L
+  num = length(grep(sprintf("%s.*\\.xml", prefix), names(doc))) + 1L
+  if(asNumber)
+    num
+  else
+    sprintf("%s%d.xml", prefix, num)
 }

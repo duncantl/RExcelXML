@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+  <c:date1904 val="0"/>
+  <c:lang val="en-US"/>
+  <c:roundedCorners val="0"/>
+  <mc:AlternateContent xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <mc:Choice xmlns:c14="http://schemas.microsoft.com/office/drawing/2007/8/2/chart" Requires="c14">
+      <c14:style val="118"/>
+    </mc:Choice>
+    <mc:Fallback>
+      <c:style val="18"/>
+    </mc:Fallback>
+  </mc:AlternateContent>
+  <c:chart>
+    <c:autoTitleDeleted val="0"/>
+    <c:plotArea>
+      <c:layout>
+        <c:manualLayout>
+          <c:layoutTarget val="inner"/>
+          <c:xMode val="edge"/>
+          <c:yMode val="edge"/>
+          <c:x val="0.0594792213473316"/>
+          <c:y val="0.0277777777777778"/>
+          <c:w val="0.734156605424322"/>
+          <c:h val="0.822469378827647"/>
+        </c:manualLayout>
+      </c:layout>
+      <c:barChart>
+        <c:barDir val="col"/>
+        <c:grouping val="clustered"/>
+        <c:varyColors val="0"/>
+        <c:ser>
+          <c:idx val="0"/>
+          <c:order val="0"/>
+          <c:invertIfNegative val="0"/>
+          <c:cat>
+            <c:strRef>
+              <c:f>Sheet1!$A$2:$A$5</c:f>
+              <c:strCache>
+                <c:ptCount val="4"/>
+                <c:pt idx="0">
+                  <c:v>A</c:v>
+                </c:pt>
+                <c:pt idx="1">
+                  <c:v>B</c:v>
+                </c:pt>
+                <c:pt idx="2">
+                  <c:v>C</c:v>
+                </c:pt>
+                <c:pt idx="3">
+                  <c:v>D</c:v>
+                </c:pt>
+              </c:strCache>
+            </c:strRef>
+          </c:cat>
+          <c:val>
+            <c:numRef>
+              <c:f>Sheet1!$B$2:$B$5</c:f>
+              <c:numCache>
+                <c:formatCode>General</c:formatCode>
+                <c:ptCount val="4"/>
+                <c:pt idx="0">
+                  <c:v>10.0</c:v>
+                </c:pt>
+                <c:pt idx="1">
+                  <c:v>30.0</c:v>
+                </c:pt>
+                <c:pt idx="2">
+                  <c:v>14.0</c:v>
+                </c:pt>
+                <c:pt idx="3">
+                  <c:v>18.0</c:v>
+                </c:pt>
+              </c:numCache>
+            </c:numRef>
+          </c:val>
+        </c:ser>
+        <c:dLbls>
+          <c:showLegendKey val="0"/>
+          <c:showVal val="0"/>
+          <c:showCatName val="0"/>
+          <c:showSerName val="0"/>
+          <c:showPercent val="0"/>
+          <c:showBubbleSize val="0"/>
+        </c:dLbls>
+        <c:gapWidth val="150"/>
+        <c:axId val="273656808"/>
+        <c:axId val="272894872"/>
+      </c:barChart>
+      <c:catAx>
+        <c:axId val="273656808"/>
+        <c:scaling>
+          <c:orientation val="minMax"/>
+        </c:scaling>
+        <c:delete val="0"/>
+        <c:axPos val="b"/>
+        <c:majorTickMark val="out"/>
+        <c:minorTickMark val="none"/>
+        <c:tickLblPos val="nextTo"/>
+        <c:crossAx val="272894872"/>
+        <c:crosses val="autoZero"/>
+        <c:auto val="1"/>
+        <c:lblAlgn val="ctr"/>
+        <c:lblOffset val="100"/>
+        <c:noMultiLvlLbl val="0"/>
+      </c:catAx>
+      <c:valAx>
+        <c:axId val="272894872"/>
+        <c:scaling>
+          <c:orientation val="minMax"/>
+        </c:scaling>
+        <c:delete val="0"/>
+        <c:axPos val="l"/>
+        <c:majorGridlines/>
+        <c:numFmt formatCode="General" sourceLinked="1"/>
+        <c:majorTickMark val="out"/>
+        <c:minorTickMark val="none"/>
+        <c:tickLblPos val="nextTo"/>
+        <c:crossAx val="273656808"/>
+        <c:crosses val="autoZero"/>
+        <c:crossBetween val="between"/>
+      </c:valAx>
+    </c:plotArea>
+    <c:legend>
+      <c:legendPos val="r"/>
+      <c:layout/>
+      <c:overlay val="0"/>
+    </c:legend>
+    <c:plotVisOnly val="1"/>
+    <c:dispBlanksAs val="gap"/>
+    <c:showDLblsOverMax val="0"/>
+  </c:chart>
+  <c:printSettings>
+    <c:headerFooter/>
+    <c:pageMargins b="1.0" l="0.75" r="0.75" t="1.0" header="0.5" footer="0.5"/>
+    <c:pageSetup/>
+  </c:printSettings>
+</c:chartSpace>

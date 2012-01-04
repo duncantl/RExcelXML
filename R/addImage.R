@@ -101,18 +101,19 @@ setMethod("addImage", "Worksheet",
                     update = TRUE, name = NA, id = NA, rId = NA, ...,
                      sheet.rels = as(sheet, "ExcelArchive")[[getRelationshipsDoc(sheet)]],
                       drawing.xml = getDrawingDoc(sheet)
-                      ) {
+                   ) {
            # in the sheet, find if we have an existing <drawing> element.
            #
            r = xmlRoot(sheet@content)
 
            updates = list()
 
-
+ 
            if(is.null(sheet.rels))  # need to add the _rels/sheet1.xml.rels
               updates[[getRelationshipsDoc(sheet)]] = sheet.rels = makeRelationshipsDoc(sheet)
 
-           updates = append(updates, addDrawingNode(sheet, sheet.rels))
+           tmp = addDrawingNode(sheet, sheet.rels)
+           updates[[names(tmp)]] = tmp[[1]]
            
 
            if(is.null(drawing.xml)) {
@@ -169,13 +170,14 @@ setMethod("addImage", "Worksheet",
 addDrawingNode =
 function(sheet, sheet.rels, sid = getUniqueId(sheet.rels))
 {
+      r = xmlRoot(sheet@content)
       dr = r[["drawing"]]
       if(is.null(dr)) {
 
          sid = c('r:id' = as.character(sid))
          dr = newXMLNode("drawing", attrs = sid, namespace = "",
                               namespaceDefinitions = RExcelXML:::ExcelXMLNamespaces[c("main", "rels")],
-                               parent = xmlRoot(sheet@content), at = xmlSize(sheet@content) - 1L)
+                               parent = r, at = xmlSize(r) - 1L)
              addRelation(sheet.rels, sid)
              
                # The sheet itself will will be updated directly.
@@ -263,7 +265,8 @@ RelationshipTypes =
   c(drawing = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/drawing",
     comments = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/comments",
     image = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
-    vmlDrawing = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/vmlDrawing")
+    vmlDrawing = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/vmlDrawing",
+    chart = "http://schemas.openxmlformats.org/officeDocument/2006/relationships/chart")
 
 
 addRelation =
