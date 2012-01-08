@@ -106,7 +106,7 @@ function(doc)
   getNextNumber(doc, "xl/worksheets/sheet")
 
 getNextNumber =
-function(doc, prefix, asNumber = FALSE)
+function(doc, prefix, asNumber = TRUE)
 {
   num = length(grep(sprintf("%s.*\\.xml", prefix), names(doc))) + 1L
   if(asNumber)

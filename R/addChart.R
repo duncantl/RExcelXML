@@ -41,9 +41,9 @@ setMethod("addChart", "Worksheet",
       sheet.rels = makeRelationshipsDoc(sheet)
 
     # calculate the names of the chart and drawing files.
-  chartFile = getNextNumber(ear, "xl/charts/chart")
+  chartFile = getNextNumber(ear, "xl/charts/chart", FALSE)
 # XXX we probably need to reuse a single drawing document for the sheet.
-  drawingFile = getNextNumber(ear, "xl/drawings/drawing")
+  drawingFile = getNextNumber(ear, "xl/drawings/drawing", FALSE)
  # drawingFile = drawing.xml
 
   updates[["[Content_Types].xml"]] =
