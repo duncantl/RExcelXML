@@ -31,7 +31,7 @@ export(
 export(getCellNodes)
 
 
-exportClasses("Workbook", "Worksheet", "WorksheetFile", "ExcelArchive")
+exportClasses("Workbook", "Worksheet", "WorksheetFile", "ExcelArchive", VolatileExcelArchive)
 exportMethods("[[", "coerce", "[")
 
 export(read.xlsx)

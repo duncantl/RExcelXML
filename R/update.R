@@ -37,7 +37,7 @@ function(object, ..., .docs = list(...)) {
             els = makeZipArchiveElements(.docs)
             id = docName(object)
             id = strsplit(id, "::")[[1]]
-            els[id[2]] = I(saveXML(object))
+            els[[id[2]]] = I(saveXML(object))
             updateArchiveFiles(zipArchive(id[1]), els)
           }
 

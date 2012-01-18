@@ -1,4 +1,8 @@
 #
+#  Need to enable specifying the chart information and layout information also.
+#
+#
+#
 # [done]  [Content_Types].xml   <Override PartName="/xl/charts/chart1.xml" ContentType="application/vnd.openxmlformats-officedocument.drawingml.chart+xml"/>
 #                        <Override PartName="/xl/drawings/drawing1.xml" ContentType="application/vnd.openxmlformats-officedocument.drawing+xml"/>
 #

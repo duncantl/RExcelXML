@@ -1,5 +1,6 @@
 #setOldClass(c("ExcelArchive", "ZipArchive"))
 setClass("ExcelArchive", contains = "OOXMLArchive")
+setClass("VolatileExcelArchive", contains = c("ExcelArchive", "Volatile"))
 
 
  # zero-based index
@@ -62,7 +63,8 @@ function(f)
 
 excelDoc =
 function(f, create = FALSE, template = system.file("templateDocs", "Empty.xlsx", package = "RExcelXML"),
-          class = "ExcelArchive")
+          const = FALSE, 
+            class = if(const) "ExcelArchive" else "VolatileExcelArchive")
 {
      # 50 4B - PK for Phil Katz
   if(file.exists(f) && !isZipFile(f))
