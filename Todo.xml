@@ -11,6 +11,17 @@
 <items>
 
 <item>
+Empty sheets and dims.
+<r:code>
+> wb = workbook("~/Downloads/1pac6mosummary11.xlsx")
+> dim(wb[[2]])
+Error in min(cols, na.rm = TRUE) : invalid 'type' (list) of argument
+In addition: Warning message:
+In min(rows, na.rm = TRUE) : no non-missing arguments to min; returning Inf
+</r:code>
+</item>
+
+<item>
 Add a newExcelDoc() to explicitly say create a new file.
 </item>
 
